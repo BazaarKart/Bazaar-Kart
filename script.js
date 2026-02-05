@@ -1,44 +1,57 @@
-* { box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-body { margin:0; background:#f4f6fb; color:#1f2937; }
-.app { display:flex; height:100vh; }
+// التنقل بين الأقسام
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 
-/* Sidebar */
-.sidebar { width:240px; background:#1e293b; color:white; padding:20px; }
-.sidebar h2 { margin-bottom:30px; }
-.sidebar a { display:block; margin:15px 0; color:#cbd5f5; cursor:pointer; text-decoration:none; }
-.menu-title { margin-top:20px; font-size:13px; color:#94a3b8; }
+// WhatsApp
+let accounts = [];
+const whatsappList = document.getElementById("whatsappAccounts");
+const addWhatsappBtn = document.getElementById("addWhatsappBtn");
 
-/* Main */
-main { flex:1; padding:30px; overflow-y:auto; }
-.section { display:none; }
-.section.active { display:block; }
+addWhatsappBtn.addEventListener("click", ()=>{
+  const phone = prompt("أدخل رقم الهاتف للحساب الجديد:");
+  const name = prompt("أدخل اسم الحساب:");
+  if(phone && name){
+    const account = {id:Date.now(), phone, name, status:"غير مفعل"};
+    accounts.push(account);
+    renderAccounts();
+  }
+});
 
-/* Stats */
-.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
-.card { background:white; padding:20px; border-radius:14px; font-size:18px; }
-.highlight { background:linear-gradient(135deg,#22c55e,#16a34a); color:white; }
+function renderAccounts(){
+  whatsappList.innerHTML="";
+  accounts.forEach(acc=>{
+    const li = document.createElement("li");
+    li.innerHTML=`<span class="account-name">${acc.name} (${acc.phone}) - ${acc.status}</span>
+      <button class="delete-account" onclick="deleteAccount(${acc.id})">حذف</button>`;
+    whatsappList.appendChild(li);
+  });
+}
 
-/* Progress */
-.limit { background:white; margin-top:30px; padding:20px; border-radius:14px; }
-.progress { height:10px; background:#e5e7eb; border-radius:20px; margin-top:10px; }
-.progress-bar { height:100%; background:#22c55e; border-radius:20px; }
+function deleteAccount(id){
+  accounts = accounts.filter(a=>a.id!==id);
+  renderAccounts();
+}
 
-/* Buttons and Inputs */
-input, textarea { width:100%; padding:12px; margin:10px 0 20px; border-radius:10px; border:1px solid #ccc; }
-.btn-primary { background:#2563eb; color:white; padding:12px 24px; border-radius:10px; border:none; cursor:pointer; }
-.btn-outline { background:transparent; border:2px solid #2563eb; padding:10px 20px; border-radius:10px; cursor:pointer; }
+// Auto Reply
+document.getElementById("saveReplyBtn").addEventListener("click", ()=>{
+  const text = document.getElementById("autoReplyText").value;
+  alert("✅ تم حفظ نص الرد الآلي:\n"+text);
+});
 
-.store-name { color:#2563eb; }
-.connected { color:#ef4444; font-weight:bold; }
+// Support Ticket
+document.getElementById("submitTicket").addEventListener("click", ()=>{
+  const title = document.getElementById("supportTitle").value;
+  const desc = document.getElementById("supportDesc").value;
+  if(title && desc){
+    alert(`✅ تم إرسال التذكرة:\nالعنوان: ${title}\nالوصف: ${desc}`);
+    document.getElementById("supportTitle").value="";
+    document.getElementById("supportDesc").value="";
+  }else{
+    alert("❌ يرجى ملء جميع الحقول");
+  }
+});
 
-/* WhatsApp Accounts */
-#whatsappAccounts { list-style:none; padding:0; margin:0; }
-#whatsappAccounts li { padding:10px; border-bottom:1px solid #e5e7eb; display:flex; justify-content:space-between; align-items:center; }
-.account-name { font-weight:600; }
-.delete-account { background:#ef4444; border:none; color:white; padding:4px 10px; border-radius:8px; cursor:pointer; }
-
-/* Table */
-table { width:100%; background:white; border-radius:12px; overflow:hidden; }
-th, td { padding:15px; border-bottom:1px solid #e5e7eb; }
 
 
