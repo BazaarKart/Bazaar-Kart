@@ -28,17 +28,17 @@
 
     <!-- Home Dashboard -->
     <section id="home" class="section active">
-      <h1>👋 مرحبًا، متجر <span class="store-name">متجر تيوان</span></h1>
+      <h1>👋 مرحبًا، متجر <span class="store-name"></span></h1>
       <div class="stats">
-        <div class="card">💰 العائد المالي<br><strong>12,450 ر.س</strong></div>
-        <div class="card">📩 رسائل مرسلة<br><strong>8,420</strong></div>
-        <div class="card">❌ فشل الإرسال<br><strong>130</strong></div>
-        <div class="card highlight">📦 المجموع<br><strong>8,550</strong></div>
+        <div class="card">💰 العائد المالي<br><strong id="revenue"></strong></div>
+        <div class="card">📩 رسائل مرسلة<br><strong id="messagesSent"></strong></div>
+        <div class="card">❌ فشل الإرسال<br><strong id="messagesFailed"></strong></div>
+        <div class="card highlight">📦 المجموع<br><strong id="messagesTotal"></strong></div>
       </div>
       <div class="limit">
-        الحد الشهري للرسائل: <strong>10,000</strong>
+        الحد الشهري للرسائل: <strong id="monthlyLimit"></strong>
         <div class="progress">
-          <div class="progress-bar" style="width:85%"></div>
+          <div class="progress-bar" id="progressBar"></div>
         </div>
       </div>
     </section>
@@ -53,15 +53,15 @@
         </tr>
         <tr>
           <td>رسائل مرسلة</td>
-          <td>8,420</td>
+          <td id="repMessagesSent"></td>
         </tr>
         <tr>
           <td>رسائل فاشلة</td>
-          <td>130</td>
+          <td id="repMessagesFailed"></td>
         </tr>
         <tr>
           <td>العائد المالي</td>
-          <td>12,450 ر.س</td>
+          <td id="repRevenue"></td>
         </tr>
       </table>
     </section>
@@ -108,3 +108,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
