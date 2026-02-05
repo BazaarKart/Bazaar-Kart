@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>CartWise - السلات المتروكة</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>CartWise - السلات المتروكة</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,15 +13,12 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <h2>🛒 CartWise</h2>
-
     <a onclick="showSection('home')">🏠 الرئيسية</a>
     <a onclick="showSection('reports')">📊 التقارير</a>
-
     <p class="menu-title">واتساب</p>
     <a onclick="showSection('whatsapp')">🔗 ربط واتساب</a>
     <a onclick="showSection('auto-reply')">🤖 الرد الآلي</a>
     <a onclick="showSection('export')">⬇️ تصدير المحادثات</a>
-
     <hr>
     <a onclick="showSection('support')">🎧 الدعم الفني</a>
   </aside>
@@ -32,14 +29,12 @@
     <!-- Home Dashboard -->
     <section id="home" class="section active">
       <h1>👋 مرحبًا، متجر <span class="store-name">متجر تيوان</span></h1>
-
       <div class="stats">
         <div class="card">💰 العائد المالي<br><strong>12,450 ر.س</strong></div>
         <div class="card">📩 رسائل مرسلة<br><strong>8,420</strong></div>
         <div class="card">❌ فشل الإرسال<br><strong>130</strong></div>
         <div class="card highlight">📦 المجموع<br><strong>8,550</strong></div>
       </div>
-
       <div class="limit">
         الحد الشهري للرسائل: <strong>10,000</strong>
         <div class="progress">
@@ -74,16 +69,12 @@
     <!-- WhatsApp -->
     <section id="whatsapp" class="section">
       <h1>🔗 ربط واتساب</h1>
-
       <div class="card">
         <button class="btn-primary" id="addWhatsappBtn">➕ إضافة حساب واتساب جديد</button>
       </div>
-
       <div class="card">
         <h3>حسابات واتساب</h3>
-        <ul id="whatsappAccounts">
-          <!-- الحسابات ستظهر هنا -->
-        </ul>
+        <ul id="whatsappAccounts"></ul>
       </div>
     </section>
 
