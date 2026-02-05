@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>CartWise</title>
+  <title>CartWise - السلات المتروكة</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -17,8 +17,6 @@
     <a onclick="showSection('home')">🏠 الرئيسية</a>
     <a onclick="showSection('reports')">📊 التقارير</a>
 
-    <hr>
-
     <p class="menu-title">واتساب</p>
     <a onclick="showSection('whatsapp')">🔗 ربط واتساب</a>
     <a onclick="showSection('auto-reply')">🤖 الرد الآلي</a>
@@ -31,7 +29,7 @@
   <!-- Main -->
   <main>
 
-    <!-- Home -->
+    <!-- Home Dashboard -->
     <section id="home" class="section active">
       <h1>👋 مرحبًا، متجر <span class="store-name">متجر تيوان</span></h1>
 
@@ -53,7 +51,6 @@
     <!-- Reports -->
     <section id="reports" class="section">
       <h1>📊 التقارير</h1>
-
       <table>
         <tr>
           <th>النوع</th>
@@ -79,44 +76,38 @@
       <h1>🔗 ربط واتساب</h1>
 
       <div class="card">
-        <p>الحالة: <span class="connected">غير مربوط</span></p>
-        <button class="btn-primary">➕ إضافة حساب واتساب جديد</button>
+        <button class="btn-primary" id="addWhatsappBtn">➕ إضافة حساب واتساب جديد</button>
       </div>
 
       <div class="card">
-        <h3>معلومات الحساب</h3>
-        <p>رقم الهاتف: —</p>
-        <p>اسم الحساب: —</p>
-        <p>الحالة: غير مفعل</p>
+        <h3>حسابات واتساب</h3>
+        <ul id="whatsappAccounts">
+          <!-- الحسابات ستظهر هنا -->
+        </ul>
       </div>
     </section>
 
     <!-- Auto Reply -->
     <section id="auto-reply" class="section">
       <h1>🤖 الرد الآلي</h1>
-
       <label>نص الرد التلقائي</label>
-      <textarea rows="5">مرحبًا 👋 تم استلام رسالتك، وسيتم الرد عليك قريبًا</textarea>
-
-      <button class="btn-primary">💾 حفظ الرد</button>
+      <textarea rows="5" id="autoReplyText">مرحبًا 👋 تم استلام رسالتك، وسيتم الرد عليك قريبًا</textarea>
+      <button class="btn-primary" id="saveReplyBtn">💾 حفظ الرد</button>
     </section>
 
     <!-- Export -->
     <section id="export" class="section">
       <h1>⬇️ تصدير المحادثات</h1>
-
-      <button class="btn-primary">📥 تصدير بصيغة Excel</button>
+      <button class="btn-primary">📥 تصدير Excel</button>
       <button class="btn-outline">📄 تصدير PDF</button>
     </section>
 
     <!-- Support -->
     <section id="support" class="section">
       <h1>🎧 الدعم الفني</h1>
-
-      <input placeholder="عنوان المشكلة">
-      <textarea rows="4" placeholder="وصف المشكلة"></textarea>
-
-      <button class="btn-primary">إرسال التذكرة</button>
+      <input placeholder="عنوان المشكلة" id="supportTitle">
+      <textarea rows="4" placeholder="وصف المشكلة" id="supportDesc"></textarea>
+      <button class="btn-primary" id="submitTicket">إرسال التذكرة</button>
     </section>
 
   </main>
